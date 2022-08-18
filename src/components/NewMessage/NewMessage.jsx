@@ -25,6 +25,22 @@ export const NewMessage = ({contact}) => {
             localStorage.setItem('user', JSON.stringify(user));
             dispatch(updateUserThunk(user));
             dispatch(getUserThunk());
+            
+            setTimeout(() => {
+                fetch('https://api.chucknorris.io/jokes/random')
+                .then(data => data.json())
+                .then(data => {
+                    user.contacts[contact].messages = [...user.contacts[contact].messages, {
+                        userId: user.contacts[contact].id,
+                        text: data.value,
+                        date: new Date (Date.now()),
+                        time: new Date (Date.now()).toLocaleString('en-Latn-US', { timeStyle: 'short'})
+                    }];
+                    localStorage.setItem('user', JSON.stringify(user));
+                    dispatch(updateUserThunk(user));
+                    dispatch(getUserThunk());
+                });
+            }, 5000)
         }
 
         e.target.message.value = '';

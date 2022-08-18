@@ -38,7 +38,7 @@ export const Chat = () => {
                                 <Avatar imageSrc={contact.avatar} checked={false} />
                                 <div className='message__content'>
                                     <p className='content__text'>{message.text}</p>
-                                    <span className='content__date'>{message.date + ' ' + message.time}</span>
+                                    <span className='content__date'>{new Date (message.date).toLocaleString('en-Latn-US', { month: '2-digit', day: '2-digit', year: '2-digit', hour12: true }) + ' ' + message.time}</span>
                                 </div>
                             </div>
                     })}
