@@ -40,10 +40,19 @@ body {
     background-color: #FAFAFA;
 }
 
+.out {
+    display: block;
+    margin-bottom: 24px;
+    margin-left: auto;
+    padding-right: 24px;
+    background: url('/icons/out-icon.svg') right / contain no-repeat;
+    border: 0;
+    cursor: pointer;
+}
 
 @media (max-width: 575.98px) { 
     .container {
-        margin-top: 25px ; 
+        margin-top: 16px ; 
     }
 
     

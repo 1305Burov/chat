@@ -8,8 +8,8 @@ export const Avatar = ({imageSrc, checked}) => {
     }   
 
     return (    
-        checked ? <div className='avatar avatar_checked'><img src={`/images/${imageSrc}`} alt="avatar" /></div> 
-        : <div className='avatar'><img src={`/images/${imageSrc}`} alt="avatar" /></div> 
+        checked ? <div className='avatar avatar_checked'><img src={imageSrc} alt="avatar" /></div> 
+        : <div className='avatar'><img src={imageSrc} alt="avatar" /></div> 
     );
 }
 

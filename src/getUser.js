@@ -1,14 +1,14 @@
-export const getUser = () => {
+export const getUser = (userData) => {
     if (!localStorage.getItem('user')) {
         const user = {
             id: 1,
-            name: 'Name',
-            avatar: '',
+            name: userData.displayName,
+            avatar: userData.photoURL,
             contacts : [
                 {
                     id: 2,
                     name: 'Josefina',
-                    avatar: 'girl-1.webp',
+                    avatar: '/images/girl-1.webp',
                     messages: [
                         {
                             userId: 2,
@@ -34,7 +34,7 @@ export const getUser = () => {
                 {
                     id: 3,
                     name: 'Alice',
-                    avatar: 'girl-2.webp',
+                    avatar: '/images/girl-2.webp',
                     messages: [
                         {
                             
@@ -55,7 +55,7 @@ export const getUser = () => {
                 {
                     id: 4,
                     name: 'Maria',
-                    avatar: 'girl-3.webp',
+                    avatar: '/images/girl-3.webp',
                     messages: [
                         {
                             

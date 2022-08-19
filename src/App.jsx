@@ -1,31 +1,27 @@
+import Login from "./components/Login/Login";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Account } from "./components/Account/Account";
 import { Chat } from "./components/Chat/Chat";
-import './index.scss';
+import { authSelector } from "./store/login/selectors";
 import { getUserThunk } from "./store/user/thunk";
+import './index.scss';
+import { getAuthThunk } from "./store/login/thunk";
+import { Auth } from "./components/Auth/Auth";
 
 export function App() {
     const dispatch = useDispatch();
+    const auth = useSelector(authSelector);
+    console.log(auth)
     
     useEffect(() => {
-        dispatch(getUserThunk());
+        dispatch(getAuthThunk());
+            
     }, []);
 
     return (
-        <main className="main"> 
-            <div className="container">
-                <div className="main__wrapper">
-
-                    <Account />
-                    <Routes>
-                        <Route path="chat/:id" element={ <Chat /> } ></Route>
-                        <Route path="/" element={ <div className="choose-chat"><span>Choose or start new chat</span></div> }></Route>
-                    </Routes>
-                </div>
-            </div>
-        </main>
+        Object.keys(auth).length && <Auth auth={auth} />
     );
 }
 

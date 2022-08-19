@@ -1,9 +1,9 @@
 import { getUser } from "../../getUser";
 import { updateUserAction, getUserAction } from "./actionCreators";
 
-export function getUserThunk() {
+export function getUserThunk(user) {
     return (dispatch, getState) => {
-        dispatch(getUserAction(getUser()))
+        dispatch(getUserAction(getUser(user)))
     }
 }
 
