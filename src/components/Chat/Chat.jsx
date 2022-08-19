@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { userSelector } from '../../store/user/selectors';
 import { Avatar } from '../Avatar/Avatar';
 import { NewMessage } from '../NewMessage/NewMessage';
@@ -13,12 +13,15 @@ export const Chat = () => {
         const contactIdx = user.contacts.findIndex(contact => contact.id === Number(id));
         const contact = user.contacts[contactIdx];
         
+        console.log(document.documentElement.clientWidth <= 768);
         return (
-            
             <div className="chat">
                 <header className='chat__header header'>
-                    <Avatar imageSrc={contact.avatar} checked={true} />
-                    <span className='header__name'>{contact.name}</span>
+                    <div className='header__wrapper'>
+                        <Avatar imageSrc={contact.avatar} checked={true} />
+                        <span className='header__name'>{contact.name}</span>
+                    </div>
+                    { document.documentElement.clientWidth <= 768 && <Link to={'/'} className='header__back'></Link>}
                 </header>
     
                 <div className='chat__field field'>

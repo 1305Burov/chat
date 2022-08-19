@@ -17,6 +17,7 @@ export function App() {
         <main className="main"> 
             <div className="container">
                 <div className="main__wrapper">
+
                     <Account />
                     <Routes>
                         <Route path="chat/:id" element={ <Chat /> } ></Route>
